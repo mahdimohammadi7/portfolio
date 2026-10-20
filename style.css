@@ -1,4 +1,31 @@
-/* ---------- پایه ---------- */
+:root {
+  --bg: #f9fafb;
+  --text: #1f2937;
+  --heading: #111827;
+  --card: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.08);
+  --header-bg: #111827;
+  --header-text: #ffffff;
+  --muted: #9ca3af;
+  --chip-bg: #e0e7ff;
+  --chip-text: #3730a3;
+  --link: #4f46e5;
+}
+
+[data-theme="dark"] {
+  --bg: #0b1020;
+  --text: #e5e7eb;
+  --heading: #f3f4f6;
+  --card: #151b2e;
+  --card-shadow: rgba(0, 0, 0, 0.5);
+  --header-bg: #050816;
+  --header-text: #ffffff;
+  --muted: #9ca3af;
+  --chip-bg: #312e81;
+  --chip-text: #c7d2fe;
+  --link: #a5b4fc;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,14 +35,14 @@
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
-  color: #1f2937;
-  background: #f9fafb;
+  color: var(--text);
+  background: var(--bg);
+  transition: background 0.3s, color 0.3s;
 }
 
-/* ---------- بالای صفحه ---------- */
 header {
-  background: #22438b;
-  color: #ffffff;
+  background: var(--header-bg);
+  color: var(--header-text);
   text-align: center;
   padding: 3rem 1rem;
 }
@@ -26,10 +53,24 @@ header h1 {
 }
 
 header p {
-  color: #9ca3af;
+  color: var(--muted);
 }
 
-/* ---------- محتوا ---------- */
+#theme-toggle {
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--muted);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--header-text);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+#theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 main {
   max-width: 800px;
   margin: 0 auto;
@@ -37,19 +78,18 @@ main {
 }
 
 section {
-  background: #ffffff;
+  background: var(--card);
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 4px var(--card-shadow);
 }
 
 section h2 {
   margin-bottom: 0.75rem;
-  color: #111827;
+  color: var(--heading);
 }
 
-/* ---------- مهارت‌ها ---------- */
 ul {
   list-style: none;
   display: flex;
@@ -58,21 +98,20 @@ ul {
 }
 
 li {
-  background: #e0e7ff;
-  color: #3730a3;
+  background: var(--chip-bg);
+  color: var(--chip-text);
   padding: 0.3rem 0.9rem;
   border-radius: 999px;
   font-size: 0.9rem;
 }
 
-/* ---------- پایین صفحه ---------- */
 footer {
   text-align: center;
   padding: 2rem 1rem;
 }
 
 footer a {
-  color: #4f46e5;
+  color: var(--link);
   text-decoration: none;
   font-weight: 600;
 }
@@ -81,7 +120,6 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* ---------- موبایل ---------- */
 @media (max-width: 600px) {
   header h1 {
     font-size: 1.7rem;
